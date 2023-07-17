@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Awake(){
+        //......controllo se esistono salvataggi
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void BtnManager(string nameScene){
+        if(nameScene.ToLower() != "quit"){
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
+        }else{
+            Application.Quit();
+        }
     }
 }
