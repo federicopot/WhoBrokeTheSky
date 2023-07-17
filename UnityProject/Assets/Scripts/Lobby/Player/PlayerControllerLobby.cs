@@ -14,6 +14,9 @@ public class PlayerControllerLobby : MonoBehaviour
 
         rb = this.GetComponent<Rigidbody2D>();
         collisionPlayer = this.GetComponent<PolygonCollider2D>();
+
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
