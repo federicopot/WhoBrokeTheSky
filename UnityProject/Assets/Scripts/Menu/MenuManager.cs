@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
         }else{
             Application.Quit();
+            Debug.Log("quit!");
         }
     }
 }
