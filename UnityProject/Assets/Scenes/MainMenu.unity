@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6214278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6cb9a2ff385ca4892b0f258b7c9ac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e03c0257672e3045a62ee48a0460026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &6214280
@@ -952,7 +952,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GameScene
+          m_StringArgument: Lobby
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &804446319
@@ -1210,10 +1210,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6214278}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 6214279}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: BtnManager
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1635,7 +1635,7 @@ Animator:
   m_GameObject: {fileID: 1943243974}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a0b9de67e5f1f6445a18ff0aabed2873, type: 2}
+  m_Controller: {fileID: 9100000, guid: 333158596f11ec843a8c57aea2a84c29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
