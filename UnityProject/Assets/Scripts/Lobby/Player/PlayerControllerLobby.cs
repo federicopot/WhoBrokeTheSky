@@ -5,6 +5,7 @@ using GBGUnity.Utility;
 public class PlayerControllerLobby : MonoBehaviour
 {
     [SerializeField] public TMPro.TextMeshProUGUI textCostellationMenu;
+    public GameObject Selection;
     private Rigidbody2D rb;
     private PolygonCollider2D collisionPlayer;
     public float speed;
@@ -37,14 +38,17 @@ public class Interaction : MonoBehaviour{
     void Update(){
         if(triggered && Input.GetKeyUp(KeyCode.T) && GetComponent<PlayerControllerLobby>().speed!=0){
             GetComponent<PlayerControllerLobby>().speed = 0;
+            GetComponent<PlayerControllerLobby>().textCostellationMenu.gameObject.SetActive(false);
+            GetComponent<PlayerControllerLobby>().Selection.gameObject.SetActive(true);
         }else{
-            Debug.Log(GetComponent<PlayerControllerLobby>().textCostellationMenu.IsActive());
             if(!triggered || (Input.GetKeyUp(KeyCode.T))){
+                GetComponent<PlayerControllerLobby>().Selection.gameObject.SetActive(false);
                 GetComponent<PlayerControllerLobby>().speed = 5;
+                
             }
         }
     }
-    void OnTriggerStay2D(Collider2D coll){
+    void OnTriggerEnter2D(Collider2D coll){
         if(coll.gameObject.transform.parent.name == "Altare" && coll.gameObject.name == "TriggerAltare"){
             Debug.Log($"ciao triggerato in ENTRATA da {coll.gameObject.name}");
             GetComponent<PlayerControllerLobby>().textCostellationMenu.text = "Click T To Enter To The Altar";
