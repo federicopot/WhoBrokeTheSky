@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCostellationMenu: {fileID: 1626299902}
+  Selection: {fileID: 1966255827}
   speed: 0
 --- !u!114 &163879214
 MonoBehaviour:
@@ -1142,7 +1143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1966255828
 RectTransform:
   m_ObjectHideFlags: 0
