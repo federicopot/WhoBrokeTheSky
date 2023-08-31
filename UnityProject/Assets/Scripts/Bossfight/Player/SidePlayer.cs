@@ -19,11 +19,11 @@ public class SidePlayer : MonoBehaviour
     
     void Update()
     {
-        //MovementObject.MoveSide(this.GetComponent<Rigidbody2D>(), .5f, this.transform);
-        //transform.Translate(Input.GetAxis("Horizontal")*Time.deltaTime*speed, 0, 0);
+        
         if(Input.GetKeyUp(KeyCode.Space) && nJump > 0){
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
             MovementObject.Jump(this.GetComponent<Rigidbody2D>(), 7);
-            //currentJump++;
             nJump--;
         }
     }
@@ -31,20 +31,17 @@ public class SidePlayer : MonoBehaviour
     void FixedUpdate(){
 
         transform.position += new Vector3(Input.GetAxis("Horizontal")*Time.deltaTime*speed, 0, 0);
-
-        Debug.Log(this.gameObject.GetComponent<Rigidbody2D>().gravityScale);
-
-        /*if(){
-
-        }*/
+        //Debug.Log(this.gameObject.GetComponent<Rigidbody2D>().gravityScale);
 
     }
 
     void OnTriggerEnter2D(Collider2D coll){
-        this.gameObject.GetComponent<Rigidbody2D>().simulated = false;
-        this.gameObject.GetComponent<Rigidbody2D>().simulated = true;
-
-        this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        //Debug.Log(coll.gameObject.name);
+        if(coll.gameObject.name != "MuroSx" && coll.gameObject.name != "MuroDx"){
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        }
     }
     void OnTriggerExit2D(Collider2D coll){
         this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
@@ -55,10 +52,12 @@ public class SidePlayer : MonoBehaviour
 public class Foot : MonoBehaviour{
 
     void OnCollisionEnter2D(Collision2D coll){
-        transform.parent.parent.GetComponent<SidePlayer>().nJump = 2;
+        if(coll.gameObject.name != "MuroSx" && coll.gameObject.name != "MuroDx"){
+            transform.parent.parent.GetComponent<SidePlayer>().nJump = 2;
+        }
     }
     void OnCollisionExit2D(Collision2D coll){
-        //Debug.Log($"Exit: {coll}");
+        
     }
 
 }
