@@ -969,10 +969,12 @@ namespace GBGUnity.Utility
             rigid.velocity = movement;
         }
 
-        public static void MoveSide(Rigidbody2D rigid, float speed)
+        public static void MoveSide(Rigidbody2D rigid, float speed, Transform objectToMove)
         {
-            Vector2 movement = new Vector2(Input.GetAxis("Horizontal") * speed, 0);
-            rigid.velocity = movement;
+            Vector2 movement = new Vector2(Input.GetAxis("Horizontal") * speed, -1);
+            Debug.Log(rigid.velocity.normalized);
+
+            //rigid.AddForce(new Vector2(movement.x, 0), ForceMode2D.Impulse);
         }
 
         public static void Jump(Rigidbody2D rigid, float impulse){

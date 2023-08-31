@@ -14,12 +14,11 @@ public class SidePlayer : MonoBehaviour
     
     void Update()
     {
-        MovementObject.MoveSide(this.GetComponent<Rigidbody2D>(), 5);
-    }
+        MovementObject.MoveSide(this.GetComponent<Rigidbody2D>(), .5f, this.transform);
+        //transform.Translate(Input.GetAxis("Horizontal")*Time.deltaTime*3, 0, 0);
 
-    void FixedUpdate(){
         if(Input.GetKeyUp(KeyCode.Space)){
-            MovementObject.Jump(this.GetComponent<Rigidbody2D>(), 10);
+            MovementObject.Jump(this.GetComponent<Rigidbody2D>(), 7);
         }
     }
 
